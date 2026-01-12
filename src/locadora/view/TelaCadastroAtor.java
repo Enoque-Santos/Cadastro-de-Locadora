@@ -2,26 +2,33 @@ package locadora.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
+
+import locadora.controller.AtorController;
 
 public class TelaCadastroAtor extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
+	private JComboBox comboBoxNacional;
 
 	
 	/**
 	 * Create the frame.
 	 */
+
 	public TelaCadastroAtor() {
 		setResizable(false);
 		setLocationRelativeTo(null);
@@ -51,6 +58,7 @@ public class TelaCadastroAtor extends JFrame {
 		panel.add(lblNome);
 		
 		textField = new JTextField();
+		textField.setFont(new Font("Calibri", Font.BOLD, 14));
 		textField.setBounds(168, 54, 516, 20);
 		panel.add(textField);
 		textField.setColumns(10);
@@ -60,7 +68,7 @@ public class TelaCadastroAtor extends JFrame {
 		lblNacionalidade.setBounds(45, 99, 100, 20);
 		panel.add(lblNacionalidade);
 		
-		JComboBox comboBoxNacional = new JComboBox();
+		comboBoxNacional = new JComboBox();
 		comboBoxNacional.setFont(new Font("Calibri", Font.BOLD, 14));
 		
 		String[] nacionalidades = {"Selecione uma nacionalidade:",
@@ -142,16 +150,51 @@ public class TelaCadastroAtor extends JFrame {
 			panel.add(comboBoxNacional);
 			
 			JButton btnSalvar = new JButton("SALVAR");
+			btnSalvar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					AtorController atorController = new AtorController();
+					
+					try {
+						String nome = textField.getText();
+						String nacionalidade = comboBoxNacional.getSelectedItem().toString();
+						boolean sucesso = atorController.cadastrarAtor(nome,nacionalidade);
+						if(sucesso) {
+							JOptionPane.showMessageDialog(null,"O cadastro foi realizado com sucesso" );
+							limparCampos();
+						}else {
+							JOptionPane.showMessageDialog(null,"Os Campos não foram preenchidos corretamente" );
+						}
+					} catch (Exception ex) {
+						  JOptionPane.showMessageDialog(null,
+			                    "Erro ao cadastrar ator: " + ex.getMessage(),
+			                    "Erro",
+			                    JOptionPane.ERROR_MESSAGE);
+			            }
+										
+				}
+			});
 			btnSalvar.setFont(new Font("Calibri", Font.BOLD, 16));
 			btnSalvar.setBounds(37, 165, 89, 29);
 			panel.add(btnSalvar);
 			
 			JButton btnLimpar = new JButton("LIMPAR");
+			btnLimpar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					limparCampos();
+				}
+			});
+			
 			btnLimpar.setFont(new Font("Calibri", Font.BOLD, 16));
 			btnLimpar.setBounds(171, 165, 89, 29);
 			panel.add(btnLimpar);
 			
 			JButton btnCancelar = new JButton("CANCELAR");
+			btnCancelar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					cancelarAtor();
+				}
+			});
+			
 			btnCancelar.setFont(new Font("Calibri", Font.BOLD, 16));
 			btnCancelar.setBounds(305, 165, 127, 29);
 			panel.add(btnCancelar);
@@ -162,5 +205,13 @@ public class TelaCadastroAtor extends JFrame {
 			panel.add(btnConsultar);
 
 		
+	}
+	private void limparCampos() {		
+		textField.setText("");
+		comboBoxNacional.setSelectedIndex(0);	   
+	}
+	
+	private void cancelarAtor() {
+		this.dispose();
 	}
 }

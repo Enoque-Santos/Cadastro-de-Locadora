@@ -45,49 +45,78 @@ public class TelaPrincipal extends JFrame {
 		setTitle("Video Locadora Hora da Pipoca");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
-		
+
 		JMenuBar menuBarTelaPrincipal = new JMenuBar();
 		setJMenuBar(menuBarTelaPrincipal);
-		
+
 		JMenu mnMenuLocacao = new JMenu("Locação");
 		mnMenuLocacao.setFont(new Font("Calibri", Font.BOLD, 14));
 		menuBarTelaPrincipal.add(mnMenuLocacao);
-		
+
 		JMenuItem mntmNewMenuItemAlugar = new JMenuItem("Alugar");
 		mntmNewMenuItemAlugar.setHorizontalAlignment(SwingConstants.LEFT);
 		mntmNewMenuItemAlugar.setFont(new Font("Calibri", Font.BOLD, 14));
 		mnMenuLocacao.add(mntmNewMenuItemAlugar);
-		
+
 		JMenuItem mntmNewMenuItemConsulta = new JMenuItem("Consulta");
 		mntmNewMenuItemConsulta.setFont(new Font("Calibri", Font.BOLD, 14));
 		mnMenuLocacao.add(mntmNewMenuItemConsulta);
+
 		
-		JMenu mnNewCadasttro = new JMenu("Cadastro");
-		mnNewCadasttro.setFont(new Font("Calibri", Font.BOLD, 14));
-		menuBarTelaPrincipal.add(mnNewCadasttro);
-		
+		// menu de cadastro
+		JMenu mnNewCadastro = new JMenu("Cadastro");
+		mnNewCadastro.setFont(new Font("Calibri", Font.BOLD, 14));
+		menuBarTelaPrincipal.add(mnNewCadastro);
+
 		JMenuItem mntmNewMenuItemAtor = new JMenuItem("Ator");
 		mntmNewMenuItemAtor.setFont(new Font("Calibri", Font.BOLD, 14));
-		mnNewCadasttro.add(mntmNewMenuItemAtor);
+		mntmNewMenuItemAtor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroAtor telaCliente = new TelaCadastroAtor();
+				telaCliente.setVisible(true);
+			}
+		});
 		
+		mnNewCadastro.add(mntmNewMenuItemAtor);
+		
+		//chama tela de cadastro cliente	
 		JMenuItem mntmNewMenuItemCliente = new JMenuItem("Cliente");
 		mntmNewMenuItemCliente.setFont(new Font("Calibri", Font.BOLD, 14));
-		mnNewCadasttro.add(mntmNewMenuItemCliente);
+		mntmNewMenuItemCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroCliente telaCliente = new TelaCadastroCliente();
+				telaCliente.setVisible(true);
+			}
+		});
 		
+		
+		mnNewCadastro.add(mntmNewMenuItemCliente);
+
+		//chama tela de cadastro  filme
 		JMenuItem mntmNewMenuItemFilme = new JMenuItem("Filme");
 		mntmNewMenuItemFilme.setFont(new Font("Calibri", Font.BOLD, 14));
 		mntmNewMenuItemFilme.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		        TelaCadastroFilme telaFilme = new TelaCadastroFilme();
-		        telaFilme.setVisible(true);
-		    }
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroFilme telaFilme = new TelaCadastroFilme();
+				telaFilme.setVisible(true);
+			}
 		});
-		mnNewCadasttro.add(mntmNewMenuItemFilme);
+		mnNewCadastro.add(mntmNewMenuItemFilme);
+
 		
+		//chama tela de cadastro item
 		JMenuItem mntmNewMenuItem = new JMenuItem("Item");
 		mntmNewMenuItem.setFont(new Font("Calibri", Font.BOLD, 14));
-		mnNewCadasttro.add(mntmNewMenuItem);
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroItem telaItem = new TelaCadastroItem();
+				telaItem.setVisible(true);
+			}
+		});
+		mnNewCadastro.add(mntmNewMenuItem);
 		
+			
+
 		JMenu mnNewSair = new JMenu("Sair");
 		mnNewSair.setFont(new Font("Calibri", Font.BOLD, 14));
 		menuBarTelaPrincipal.add(mnNewSair);
@@ -95,7 +124,7 @@ public class TelaPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		
+
 		JLabel lblNewLabelIMG = new JLabel("");
 		lblNewLabelIMG.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/imagens/36477..png")));
 		contentPane.add(lblNewLabelIMG);

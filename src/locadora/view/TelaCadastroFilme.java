@@ -115,8 +115,8 @@ public class TelaCadastroFilme extends JFrame {
 				try {
 					int duracao = (Integer) spinnerDuracao .getValue();
 					String genero = comboBoxGenero.getSelectedItem().toString();					
-					FilmeController fimeController = new FilmeController();
-					boolean sucesso = fimeController.cadastrarFilmes(textFieldTitulo.getText(), genero,textAreaSinopse.getText() , duracao);
+					FilmeController filmeController = new FilmeController();
+					boolean sucesso = filmeController.cadastrarFilmes(textFieldTitulo.getText(), genero,textAreaSinopse.getText() , duracao);
 					if(sucesso) {
 						JOptionPane.showMessageDialog(null,"O cadastro foi realizado com sucesso" );
 						limparCampos();
@@ -146,14 +146,16 @@ public class TelaCadastroFilme extends JFrame {
 			
 			}
 		});
-		
-				
-		
 		btnLimpar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnLimpar.setBounds(179, 304, 89, 29);
 		panel.add(btnLimpar);
 
-		JButton btnCancelar = new JButton("CANCELAR");
+		JButton btnCancelar = new JButton("CANCELAR");		
+		btnCancelar.addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CancelarTela();
+			}
+		});	
 		btnCancelar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnCancelar.setBounds(313, 304, 127, 29);
 		panel.add(btnCancelar);
@@ -178,7 +180,7 @@ public class TelaCadastroFilme extends JFrame {
 	    comboBoxGenero.setSelectedIndex(0);
 	    spinnerDuracao.setValue(20);
 	}
-	private void fecharTela() {
+	private void CancelarTela() {
 		this.dispose();
 	
 	}

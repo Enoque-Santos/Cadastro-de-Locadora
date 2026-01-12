@@ -36,7 +36,7 @@ public class TelaCadastroItem extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Cadastro de Filme");
+		JLabel lblNewLabel = new JLabel("Cadastro de Item");
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 24));
 		lblNewLabel.setBounds(260, 23, 200, 30);
 		contentPane.add(lblNewLabel);

@@ -17,17 +17,6 @@ public class Filme {
 	public Filme(String titulo, String genero, String sinopse, Integer duracao) {
 		// TODO Auto-generated constructor stub
 	}
-	public Filme(Integer codFilme, String titulo, String genero, String sinopse, Integer duracao, ArrayList<Item> itens,
-			ArrayList<Ator> atores) {
-		super();
-		this.codFilme = codFilme;
-		this.titulo = titulo;
-		this.genero = genero;
-		this.sinopse = sinopse;
-		this.duracao = duracao;
-		this.itens = itens;
-		this.atores = atores;
-	}
 	
 	public Integer getCodFilme() {
 		return codFilme;
