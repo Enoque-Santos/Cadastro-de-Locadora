@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import locadora.controller.ClienteController;
+import javax.swing.ImageIcon;
 
 public class TelaCadastroCliente extends JFrame {
 
@@ -44,8 +45,9 @@ public class TelaCadastroCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblCadastroCliente = new JLabel("Cadastro de Cliente");
+		lblCadastroCliente.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-48.png"));
 		lblCadastroCliente.setFont(new Font("Calibri", Font.BOLD, 24));
-		lblCadastroCliente.setBounds(260, 23, 200, 30);
+		lblCadastroCliente.setBounds(260, 12, 284, 41);
 		contentPane.add(lblCadastroCliente);
 
 		JPanel panel = new JPanel();
@@ -56,7 +58,7 @@ public class TelaCadastroCliente extends JFrame {
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Calibri", Font.BOLD, 14));
-		lblNome.setBounds(104, 54, 44, 20);
+		lblNome.setBounds(104, 54, 54, 20);
 		panel.add(lblNome);
 
 		textFNome = new JTextField();
@@ -68,7 +70,7 @@ public class TelaCadastroCliente extends JFrame {
 
 		JLabel lblDataNasc = new JLabel("Data Nascimento:");
 		lblDataNasc.setFont(new Font("Calibri", Font.BOLD, 14));
-		lblDataNasc.setBounds(36, 85, 105, 20);
+		lblDataNasc.setBounds(31, 85, 127, 20);
 		panel.add(lblDataNasc);
 
 		textFieldData = new JFormattedTextField();
@@ -115,7 +117,7 @@ public class TelaCadastroCliente extends JFrame {
 
 		JLabel lblEndereco = new JLabel("Endereço:");
 		lblEndereco.setFont(new Font("Calibri", Font.BOLD, 14));
-		lblEndereco.setBounds(84, 186, 64, 20);
+		lblEndereco.setBounds(71, 186, 77, 20);
 		panel.add(lblEndereco);
 
 		textFieldEndereco = new JTextField();
@@ -149,7 +151,7 @@ public class TelaCadastroCliente extends JFrame {
 			}
 		});
 		btnSalvar.setFont(new Font("Calibri", Font.BOLD, 16));
-		btnSalvar.setBounds(104, 262, 89, 29);
+		btnSalvar.setBounds(104, 262, 95, 29);
 		panel.add(btnSalvar);
 
 		JButton btnLimpar = new JButton("LIMPAR");
@@ -159,7 +161,7 @@ public class TelaCadastroCliente extends JFrame {
 			}
 		});
 		btnLimpar.setFont(new Font("Calibri", Font.BOLD, 16));
-		btnLimpar.setBounds(238, 262, 89, 29);
+		btnLimpar.setBounds(238, 262, 105, 29);
 		panel.add(btnLimpar);
 
 		JButton btnCancelar = new JButton("CANCELAR");
@@ -174,7 +176,7 @@ public class TelaCadastroCliente extends JFrame {
 
 		JButton btnConsultar = new JButton("CONSULTAR");
 		btnConsultar.setFont(new Font("Calibri", Font.BOLD, 16));
-		btnConsultar.setBounds(544, 262, 127, 29);
+		btnConsultar.setBounds(544, 262, 143, 29);
 		panel.add(btnConsultar);
 
 	}

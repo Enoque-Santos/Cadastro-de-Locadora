@@ -37,8 +37,9 @@ public class TelaCadastroItem extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Cadastro de Item");
+		lblNewLabel.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-48.png"));
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 24));
-		lblNewLabel.setBounds(260, 23, 200, 30);
+		lblNewLabel.setBounds(244, 12, 274, 41);
 		contentPane.add(lblNewLabel);
 
 		JPanel panel = new JPanel();
@@ -84,12 +85,12 @@ public class TelaCadastroItem extends JFrame {
 		
 		JButton btnSalvar = new JButton("SALVAR");
 		btnSalvar.setFont(new Font("Calibri", Font.BOLD, 16));
-		btnSalvar.setBounds(30, 231, 89, 29);
+		btnSalvar.setBounds(30, 231, 100, 29);
 		panel.add(btnSalvar);
 
 		JButton btnLimpar = new JButton("LIMPAR");
 		btnLimpar.setFont(new Font("Calibri", Font.BOLD, 16));
-		btnLimpar.setBounds(164, 231, 89, 29);
+		btnLimpar.setBounds(164, 231, 100, 29);
 		panel.add(btnLimpar);
 
 		JButton btnCancelar = new JButton("CANCELAR");
@@ -99,7 +100,7 @@ public class TelaCadastroItem extends JFrame {
 
 		JButton btnConsultar = new JButton("CONSULTAR");
 		btnConsultar.setFont(new Font("Calibri", Font.BOLD, 16));
-		btnConsultar.setBounds(470, 231, 127, 29);
+		btnConsultar.setBounds(470, 231, 141, 29);
 		panel.add(btnConsultar);
 		
 		JButton btnPesquisar = new JButton("");

@@ -19,6 +19,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
 
 import locadora.controller.FilmeController;
+import javax.swing.ImageIcon;
 
 public class TelaCadastroFilme extends JFrame {
 
@@ -45,8 +46,9 @@ public class TelaCadastroFilme extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Cadastro de Filme");
+		lblNewLabel.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-48.png"));
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 24));
-		lblNewLabel.setBounds(260, 23, 200, 30);
+		lblNewLabel.setBounds(236, 12, 275, 41);
 		contentPane.add(lblNewLabel);
 
 		JPanel panel = new JPanel();
@@ -104,7 +106,7 @@ public class TelaCadastroFilme extends JFrame {
 	
 
 		JLabel lblNewLabel_1 = new JLabel("minutos");
-		lblNewLabel_1.setBounds(194, 252, 46, 14);
+		lblNewLabel_1.setBounds(194, 252, 57, 14);
 		panel.add(lblNewLabel_1);
 		
 		//  Botão Salvar e tratamento.
@@ -120,6 +122,7 @@ public class TelaCadastroFilme extends JFrame {
 					if(sucesso) {
 						JOptionPane.showMessageDialog(null,"O cadastro foi realizado com sucesso" );
 						limparCampos();
+						
 					}else {
 						JOptionPane.showMessageDialog(null,"Os Campos não foram preenchidos corretamente" );
 					}
@@ -136,7 +139,7 @@ public class TelaCadastroFilme extends JFrame {
 		
 		
 		btnSalvar.setFont(new Font("Calibri", Font.BOLD, 16));
-		btnSalvar.setBounds(45, 304, 89, 29);
+		btnSalvar.setBounds(45, 304, 100, 29);
 		panel.add(btnSalvar);
 
 		JButton btnLimpar = new JButton("LIMPAR");
@@ -147,7 +150,7 @@ public class TelaCadastroFilme extends JFrame {
 			}
 		});
 		btnLimpar.setFont(new Font("Calibri", Font.BOLD, 16));
-		btnLimpar.setBounds(179, 304, 89, 29);
+		btnLimpar.setBounds(179, 304, 104, 29);
 		panel.add(btnLimpar);
 
 		JButton btnCancelar = new JButton("CANCELAR");		
@@ -162,7 +165,7 @@ public class TelaCadastroFilme extends JFrame {
 
 		JButton btnConsultar = new JButton("CONSULTAR");
 		btnConsultar.setFont(new Font("Calibri", Font.BOLD, 16));
-		btnConsultar.setBounds(485, 304, 127, 29);
+		btnConsultar.setBounds(485, 304, 136, 29);
 		panel.add(btnConsultar);
 		
 		JLabel lblDuracao = new JLabel("Duração:");

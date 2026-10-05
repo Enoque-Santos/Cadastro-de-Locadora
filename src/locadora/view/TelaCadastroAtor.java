@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import locadora.controller.AtorController;
+import javax.swing.ImageIcon;
 
 public class TelaCadastroAtor extends JFrame {
 
@@ -42,14 +43,15 @@ public class TelaCadastroAtor extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Cadastro de Ator");
+		lblNewLabel.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-48.png"));
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 24));
-		lblNewLabel.setBounds(260, 23, 200, 30);
+		lblNewLabel.setBounds(224, 12, 281, 41);
 		contentPane.add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBackground(new Color(192, 192, 192));
-		panel.setBounds(25, 78, 732, 290);
+		panel.setBounds(32, 75, 732, 290);
 		contentPane.add(panel);
 		
 		JLabel lblNome = new JLabel("Nome:");
@@ -65,7 +67,7 @@ public class TelaCadastroAtor extends JFrame {
 		
 		JLabel lblNacionalidade = new JLabel("Nacionalidade:");
 		lblNacionalidade.setFont(new Font("Calibri", Font.BOLD, 14));
-		lblNacionalidade.setBounds(45, 99, 100, 20);
+		lblNacionalidade.setBounds(32, 99, 113, 20);
 		panel.add(lblNacionalidade);
 		
 		comboBoxNacional = new JComboBox();
@@ -174,7 +176,7 @@ public class TelaCadastroAtor extends JFrame {
 				}
 			});
 			btnSalvar.setFont(new Font("Calibri", Font.BOLD, 16));
-			btnSalvar.setBounds(37, 165, 89, 29);
+			btnSalvar.setBounds(53, 165, 142, 29);
 			panel.add(btnSalvar);
 			
 			JButton btnLimpar = new JButton("LIMPAR");
@@ -185,7 +187,7 @@ public class TelaCadastroAtor extends JFrame {
 			});
 			
 			btnLimpar.setFont(new Font("Calibri", Font.BOLD, 16));
-			btnLimpar.setBounds(171, 165, 89, 29);
+			btnLimpar.setBounds(207, 165, 142, 29);
 			panel.add(btnLimpar);
 			
 			JButton btnCancelar = new JButton("CANCELAR");
@@ -196,12 +198,12 @@ public class TelaCadastroAtor extends JFrame {
 			});
 			
 			btnCancelar.setFont(new Font("Calibri", Font.BOLD, 16));
-			btnCancelar.setBounds(305, 165, 127, 29);
+			btnCancelar.setBounds(371, 165, 140, 29);
 			panel.add(btnCancelar);
 			
 			JButton btnConsultar = new JButton("CONSULTAR");
 			btnConsultar.setFont(new Font("Calibri", Font.BOLD, 16));
-			btnConsultar.setBounds(477, 165, 127, 29);
+			btnConsultar.setBounds(523, 165, 140, 29);
 			panel.add(btnConsultar);
 
 		

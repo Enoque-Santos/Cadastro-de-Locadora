@@ -4,7 +4,9 @@ import locadora.model.Filme;
 
 public class FilmeController {
 	
-	
+	/*
+	 * Metodo que vai cadastrar filmes e fazer uma validação dos campos. 
+	 */
 	public boolean  cadastrarFilmes(String titulo, String genero, String sinopse, Integer duracao) {
 		
 		if(titulo != null && titulo.length()>0 && genero != null && genero.length()>0 && sinopse != null && sinopse.length()>0 && duracao != null && duracao >0) {
