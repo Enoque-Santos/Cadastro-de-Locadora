@@ -7,6 +7,4 @@ public class ExceptionDAO extends Exception{
 		
 	} 
 		
-	
-	
 }

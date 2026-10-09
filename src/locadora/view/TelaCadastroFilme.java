@@ -97,7 +97,7 @@ public class TelaCadastroFilme extends JFrame {
 		spinnerDuracao = new JSpinner();
 		spinnerDuracao.setModel(new SpinnerNumberModel(20, 20, 300, 10));
 		spinnerDuracao.setFont(new Font("Calibri", Font.BOLD, 14));
-		spinnerDuracao.setToolTipText("informa da duração do filme ");
+		spinnerDuracao.setToolTipText("Informa da duração do filme ");
 		spinnerDuracao.setBounds(119, 237, 64, 29);
 		panel.add(spinnerDuracao);
 

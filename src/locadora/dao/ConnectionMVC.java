@@ -11,7 +11,7 @@ public class ConnectionMVC {
 		Connection conn = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
 		} catch (ClassNotFoundException e) {
 
@@ -19,8 +19,9 @@ public class ConnectionMVC {
 
 		}
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mvc?useSSl=false", "root", "Cris@2308");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/MVC?useSSL=false&serverTimezone=UTC", "dev", "projeto2026");
 		} catch (SQLException e) {
+			System.err.println("Erro de conexão ao banco MySQL: " + e.getMessage());
 			e.printStackTrace();
 		}
 		return conn;
