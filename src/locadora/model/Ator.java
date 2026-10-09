@@ -2,6 +2,9 @@ package locadora.model;
 
 import java.util.ArrayList;
 
+import locadora.dao.AtorDAO;
+import locadora.dao.ExceptionDAO;
+
 public class Ator {
 	
 	private Integer codAtor;
@@ -42,8 +45,8 @@ public class Ator {
 		this.filmes = filmes;
 	}
 	
-	public void cadastrarAtor(Ator ator) {
-		
+	public void cadastrarAtor(Ator ator) throws ExceptionDAO {
+		new AtorDAO().cadastrarAtor(ator);
 	}
 	
 
