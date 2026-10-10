@@ -4,11 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import locadora.dao.ExceptionDAO;
 import locadora.model.Cliente;
 
 public class ClienteController {
 
-	public boolean cadastrarCliente(String nome, String cpf, String email, String endereco, String dtNascimento) throws ParseException {
+	public boolean cadastrarCliente(String nome, String cpf, String email, String endereco, String dtNascimento) throws ParseException, ExceptionDAO {
 
 		if (nome != null && nome.length() > 0 && validarCPF(cpf) && email != null && email.length() > 0
 				&& endereco != null && endereco.length() > 0 && validarData(dtNascimento)) {

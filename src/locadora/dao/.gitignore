@@ -2,3 +2,6 @@
 /ExceptionDAO.class
 /FilmeDAO.class
 /AtorDAO.class
+/Item.class
+/ItemDAO.class
+/ClienteDAO.class
