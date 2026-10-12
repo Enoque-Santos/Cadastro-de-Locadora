@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -19,7 +20,6 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
 
 import locadora.controller.FilmeController;
-import javax.swing.ImageIcon;
 
 public class TelaCadastroFilme extends JFrame {
 
@@ -46,7 +46,8 @@ public class TelaCadastroFilme extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Cadastro de Filme");
-		lblNewLabel.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-48.png"));
+		lblNewLabel.setIcon(new ImageIcon(
+				"/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-48.png"));
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 24));
 		lblNewLabel.setBounds(236, 12, 275, 41);
 		contentPane.add(lblNewLabel);
@@ -61,7 +62,7 @@ public class TelaCadastroFilme extends JFrame {
 		lblTitulo.setFont(new Font("Calibri", Font.BOLD, 14));
 		lblTitulo.setBounds(45, 23, 64, 20);
 		panel.add(lblTitulo);
-		
+
 		textFieldTitulo = new JTextField();
 		textFieldTitulo.setFont(new Font("Calibri", Font.BOLD, 14));
 		textFieldTitulo.setToolTipText("informe o titulo do filme ");
@@ -76,24 +77,24 @@ public class TelaCadastroFilme extends JFrame {
 
 		comboBoxGenero = new JComboBox<>();
 		comboBoxGenero.setToolTipText("informe o genero do filme");
-		comboBoxGenero.setModel(new DefaultComboBoxModel(new String[]{ "Selecione uma genêro:","Ação","Animação","Aventura","Comédia","Documentário",
-								"Fantasia","Ficção Cientifica","Musicais","Romance","Suspense","Terror","Drama",}));
+		comboBoxGenero.setModel(new DefaultComboBoxModel(
+				new String[] { "Selecione uma genêro:", "Ação", "Animação", "Aventura", "Comédia", "Documentário",
+						"Fantasia", "Ficção Cientifica", "Musicais", "Romance", "Suspense", "Terror", "Drama", }));
 		comboBoxGenero.setFont(new Font("Calibri", Font.BOLD, 14));
 		comboBoxGenero.setBounds(119, 56, 164, 22); // aumentei a largura
 		panel.add(comboBoxGenero);
-		
-		
+
 		JLabel lblSinopse = new JLabel("Sinopse:");
 		lblSinopse.setFont(new Font("Calibri", Font.BOLD, 14));
 		lblSinopse.setBounds(45, 91, 64, 20);
 		panel.add(lblSinopse);
-		
+
 		textAreaSinopse = new JTextArea();
 		textAreaSinopse.setFont(new Font("Calibri", Font.BOLD, 14));
 		textAreaSinopse.setToolTipText("Informe a sinopse do filme");
 		textAreaSinopse.setBounds(119, 88, 485, 127);
 		panel.add(textAreaSinopse);
-		
+
 		spinnerDuracao = new JSpinner();
 		spinnerDuracao.setModel(new SpinnerNumberModel(20, 20, 300, 10));
 		spinnerDuracao.setFont(new Font("Calibri", Font.BOLD, 14));
@@ -101,43 +102,37 @@ public class TelaCadastroFilme extends JFrame {
 		spinnerDuracao.setBounds(119, 237, 64, 29);
 		panel.add(spinnerDuracao);
 
-	
-	
-	
-
 		JLabel lblNewLabel_1 = new JLabel("minutos");
 		lblNewLabel_1.setBounds(194, 252, 57, 14);
 		panel.add(lblNewLabel_1);
-		
-		//  Botão Salvar e tratamento.
+
+		// Botão Salvar e tratamento.
 		JButton btnSalvar = new JButton("SALVAR");
-		btnSalvar.addActionListener(new ActionListener() {		
-			public void actionPerformed(ActionEvent e) {	
-			
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
 				try {
-					int duracao = (Integer) spinnerDuracao .getValue();
-					String genero = comboBoxGenero.getSelectedItem().toString();					
+					int duracao = (Integer) spinnerDuracao.getValue();
+					String genero = comboBoxGenero.getSelectedItem().toString();
 					FilmeController filmeController = new FilmeController();
-					boolean sucesso = filmeController.cadastrarFilmes(textFieldTitulo.getText(), genero,textAreaSinopse.getText() , duracao);
-					if(sucesso) {
-						JOptionPane.showMessageDialog(null,"O cadastro foi realizado com sucesso" );
+					boolean sucesso = filmeController.cadastrarFilmes(textFieldTitulo.getText(), genero,
+							textAreaSinopse.getText(), duracao);
+					if (sucesso) {
+						JOptionPane.showMessageDialog(null, "O cadastro foi realizado com sucesso");
 						limparCampos();
-						
-					}else {
-						JOptionPane.showMessageDialog(null,"Os Campos não foram preenchidos corretamente" );
+
+					} else {
+						JOptionPane.showMessageDialog(null, "Os Campos não foram preenchidos corretamente");
 					}
-					
+
 				} catch (Exception ex) {
-		            JOptionPane.showMessageDialog(null,
-		                    "Erro ao cadastrar filme: " + ex.getMessage(),
-		                    "Erro",
-		                    JOptionPane.ERROR_MESSAGE);
-		            }
-			
+					JOptionPane.showMessageDialog(null, "Erro ao cadastrar filme: " + ex.getMessage(), "Erro",
+							JOptionPane.ERROR_MESSAGE);
+				}
+
 			}
 		});
-		
-		
+
 		btnSalvar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnSalvar.setBounds(45, 304, 100, 29);
 		panel.add(btnSalvar);
@@ -146,45 +141,56 @@ public class TelaCadastroFilme extends JFrame {
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				limparCampos();
-			
+
 			}
 		});
 		btnLimpar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnLimpar.setBounds(179, 304, 104, 29);
 		panel.add(btnLimpar);
 
-		JButton btnCancelar = new JButton("CANCELAR");		
-		btnCancelar.addActionListener( new ActionListener() {
+		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CancelarTela();
 			}
-		});	
+		});
 		btnCancelar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnCancelar.setBounds(313, 304, 127, 29);
 		panel.add(btnCancelar);
 
+		// 1. Criação e configuração do botão "CONSULTAR"
 		JButton btnConsultar = new JButton("CONSULTAR");
 		btnConsultar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnConsultar.setBounds(485, 304, 136, 29);
 		panel.add(btnConsultar);
-		
+
+		// 2. Adiciona o evento de clique no botão
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaConsultaFilme telaConsulta = new TelaConsultaFilme(TelaCadastroFilme.this);
+				telaConsulta.setVisible(true);
+
+				// Esconde a tela de cadastro atual
+				TelaCadastroFilme.this.setVisible(false);
+			}
+		});
+
 		JLabel lblDuracao = new JLabel("Duração:");
 		lblDuracao.setFont(new Font("Calibri", Font.BOLD, 14));
 		lblDuracao.setBounds(45, 246, 64, 20);
 		panel.add(lblDuracao);
-		
-		
 
 	}
-	
-	private void limparCampos() {		
-	    textFieldTitulo.setText("");
-	    textAreaSinopse.setText("");
-	    comboBoxGenero.setSelectedIndex(0);
-	    spinnerDuracao.setValue(20);
+
+	private void limparCampos() {
+		textFieldTitulo.setText("");
+		textAreaSinopse.setText("");
+		comboBoxGenero.setSelectedIndex(0);
+		spinnerDuracao.setValue(20);
 	}
+
 	private void CancelarTela() {
 		this.dispose();
-	
+
 	}
 }
