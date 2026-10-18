@@ -2,11 +2,14 @@ package locadora.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -19,7 +22,7 @@ public class TelaConsultaFilme extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private final JLabel labelTirulo = new JLabel("Consulta de Filme");
+	private final JLabel labelTituloFilme = new JLabel("Consulta Filme");
 	private JTextField textFieldTituloFilme;
 	private JTable tableConsultaFilme;
 
@@ -54,11 +57,11 @@ public class TelaConsultaFilme extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		labelTirulo.setBounds(222, 10, 148, 20);
-		labelTirulo.setFont(new Font("Dialog", Font.BOLD, 14));
-		labelTirulo.setIcon(new ImageIcon(
+		labelTituloFilme.setBounds(222, 10, 148, 20);
+		labelTituloFilme.setFont(new Font("Dialog", Font.BOLD, 14));
+		labelTituloFilme.setIcon(new ImageIcon(
 				"/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-20.png"));
-		contentPane.add(labelTirulo);
+		contentPane.add(labelTituloFilme);
 
 		JPanel jPanelConsultaFilme = new JPanel();
 		jPanelConsultaFilme.setBounds(25, 65, 561, 334);
@@ -83,23 +86,33 @@ public class TelaConsultaFilme extends JFrame {
 				new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-pesquisar-16.png"));
 		btnNewButtonConsultaFilme.setBounds(477, 47, 40, 21);
 		jPanelConsultaFilme.add(btnNewButtonConsultaFilme);
+		
+
+		// Não implementado ainda.
+		btnNewButtonConsultaFilme.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Consulta nome do Filme");
+			}
+		});
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(12, 78, 505, 244);
 		jPanelConsultaFilme.add(scrollPane);
 
 		tableConsultaFilme = new JTable();
-		tableConsultaFilme.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "C\u00F3digo", "T\u00EDtulo", "G\u00EAnero", "Sinopse", "Dura\u00E7\u00E3o" }) {
-			Class[] columnTypes = new Class[] { Integer.class, String.class, String.class, String.class,
-					Integer.class };
-
+		tableConsultaFilme.setFillsViewportHeight(true);
+		tableConsultaFilme.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"C\u00F3digo", "T\u00EDtulo", "G\u00EAnero", "Sinopse", "Dura\u00E7\u00E3o"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				Integer.class, String.class, String.class, String.class, Integer.class
+			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
-			}
-
-			public boolean isCellEditable(int rowIndex, int columnIndex) {
-				return false;
 			}
 		});
 		scrollPane.setViewportView(tableConsultaFilme);

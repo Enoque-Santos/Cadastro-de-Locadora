@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -16,7 +17,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import locadora.controller.AtorController;
-import javax.swing.ImageIcon;
 
 public class TelaCadastroAtor extends JFrame {
 
@@ -205,7 +205,16 @@ public class TelaCadastroAtor extends JFrame {
 			btnConsultar.setFont(new Font("Calibri", Font.BOLD, 16));
 			btnConsultar.setBounds(523, 165, 140, 29);
 			panel.add(btnConsultar);
+			// 2. Adiciona o evento de clique no botão
+			btnConsultar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					TelaConsultaAtor telaConsulta = new TelaConsultaAtor(TelaCadastroAtor.this);
+					telaConsulta.setVisible(true);
 
+					// Esconde a tela de cadastro atual
+					TelaCadastroAtor.this.setVisible(false);
+				}
+			});
 		
 	}
 	private void limparCampos() {		
