@@ -35,7 +35,7 @@ public class TelaCadastroAtor extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Video Locadora Hora da Pipoca");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 800, 500);
+		setBounds(100, 100, 600, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -51,7 +51,7 @@ public class TelaCadastroAtor extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBackground(new Color(192, 192, 192));
-		panel.setBounds(32, 75, 732, 290);
+		panel.setBounds(25, 64, 563, 311);
 		contentPane.add(panel);
 		
 		JLabel lblNome = new JLabel("Nome:");
@@ -61,7 +61,7 @@ public class TelaCadastroAtor extends JFrame {
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Calibri", Font.BOLD, 14));
-		textField.setBounds(168, 54, 516, 20);
+		textField.setBounds(98, 54, 430, 20);
 		panel.add(textField);
 		textField.setColumns(10);
 		
@@ -148,7 +148,7 @@ public class TelaCadastroAtor extends JFrame {
 			    new DefaultComboBoxModel<>(nacionalidades)
 			);
 
-			comboBoxNacional.setBounds(167, 98, 205, 22); // aumentei a largura
+			comboBoxNacional.setBounds(167, 98, 237, 22); // aumentei a largura
 			panel.add(comboBoxNacional);
 			
 			JButton btnSalvar = new JButton("SALVAR");
@@ -176,7 +176,7 @@ public class TelaCadastroAtor extends JFrame {
 				}
 			});
 			btnSalvar.setFont(new Font("Calibri", Font.BOLD, 16));
-			btnSalvar.setBounds(53, 165, 142, 29);
+			btnSalvar.setBounds(12, 165, 102, 29);
 			panel.add(btnSalvar);
 			
 			JButton btnLimpar = new JButton("LIMPAR");
@@ -187,7 +187,7 @@ public class TelaCadastroAtor extends JFrame {
 			});
 			
 			btnLimpar.setFont(new Font("Calibri", Font.BOLD, 16));
-			btnLimpar.setBounds(207, 165, 142, 29);
+			btnLimpar.setBounds(126, 165, 113, 29);
 			panel.add(btnLimpar);
 			
 			JButton btnCancelar = new JButton("CANCELAR");
@@ -198,14 +198,14 @@ public class TelaCadastroAtor extends JFrame {
 			});
 			
 			btnCancelar.setFont(new Font("Calibri", Font.BOLD, 16));
-			btnCancelar.setBounds(371, 165, 140, 29);
+			btnCancelar.setBounds(264, 165, 121, 29);
 			panel.add(btnCancelar);
 			
 			JButton btnConsultar = new JButton("CONSULTAR");
 			btnConsultar.setFont(new Font("Calibri", Font.BOLD, 16));
-			btnConsultar.setBounds(523, 165, 140, 29);
+			btnConsultar.setBounds(397, 165, 131, 29);
 			panel.add(btnConsultar);
-			// 2. Adiciona o evento de clique no botão
+			//Adiciona o evento de clique no botão
 			btnConsultar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					TelaConsultaAtor telaConsulta = new TelaConsultaAtor(TelaCadastroAtor.this);

@@ -48,7 +48,7 @@ public class TelaPrincipal extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("HORA DA PIPOCA\n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 600, 450);
 
 		JMenuBar menuBarTelaPrincipal = new JMenuBar();
 		setJMenuBar(menuBarTelaPrincipal);

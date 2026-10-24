@@ -40,10 +40,11 @@ public class TelaConsultaAtor extends JFrame {
  			// Configurações da Janela
  			setTitle("Video Locadora Hora da Pipoca");
  			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
- 			setBounds(100, 100, 598, 448);
+ 			setBounds(100, 100, 600, 450);
  			
  			// Evento para reabrir o cadastro quando a consulta for fechada (clicar no X)
  			addWindowListener(new java.awt.event.WindowAdapter() {
+ 				//Este método é acionado após a janela de consulta ser totalmente fechada.
  				@Override
  				public void windowClosed(java.awt.event.WindowEvent e) {
  					if (telaCadastroAtor != null) {
@@ -57,12 +58,12 @@ public class TelaConsultaAtor extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-				
-				JLabel labelTituloAtor = new JLabel("Consulta Ator");
-				labelTituloAtor.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-20.png"));
-				labelTituloAtor.setFont(new Font("Dialog", Font.BOLD, 14));
-				labelTituloAtor.setBounds(222, 10, 148, 20);
-				contentPane.add(labelTituloAtor);
+		
+		JLabel labelTituloAtor = new JLabel("Consulta Ator");
+		labelTituloAtor.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-20.png"));
+		labelTituloAtor.setFont(new Font("Dialog", Font.BOLD, 14));
+		labelTituloAtor.setBounds(222, 10, 148, 20);
+		contentPane.add(labelTituloAtor);
 		
 		JPanel jPanelConsultaAtor = new JPanel();
 		jPanelConsultaAtor.setBackground(new Color(94, 92, 100));
@@ -70,10 +71,10 @@ public class TelaConsultaAtor extends JFrame {
 		contentPane.add(jPanelConsultaAtor);
 		jPanelConsultaAtor.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Informe nome ator:");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(12, 49, 136, 17);
-		jPanelConsultaAtor.add(lblNewLabel);
+		JLabel lblLabelNomeAtor = new JLabel("Informe nome ator:");
+		lblLabelNomeAtor.setForeground(new Color(255, 255, 255));
+		lblLabelNomeAtor.setBounds(12, 49, 136, 17);
+		jPanelConsultaAtor.add(lblLabelNomeAtor);
 		
 		textFieldNomeAtor = new JTextField();
 		textFieldNomeAtor.setToolTipText("Informe o nome do ator:");
@@ -112,6 +113,12 @@ public class TelaConsultaAtor extends JFrame {
 			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
+			}
+			boolean[] columnEditables = new boolean[] {
+				false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
 			}
 		});
 		tableConsultaAtor.getColumnModel().getColumn(2).setPreferredWidth(94);

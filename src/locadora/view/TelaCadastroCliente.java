@@ -178,6 +178,17 @@ public class TelaCadastroCliente extends JFrame {
 		btnConsultar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnConsultar.setBounds(544, 262, 143, 29);
 		panel.add(btnConsultar);
+		//Adiciona o evento de clique no botão
+		btnConsultar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TelaConsultaCliente telaConsultaCliente = new TelaConsultaCliente(TelaCadastroCliente.this);
+				telaConsultaCliente.setVisible(true);
+				// Esconde a tela de cadastro atual
+				TelaCadastroCliente.this.setVisible(false);
+			}
+		});
 
 	}
 

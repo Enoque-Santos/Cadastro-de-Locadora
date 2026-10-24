@@ -38,7 +38,7 @@ public class TelaCadastroFilme extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Video Locadora Hora da Pipoca");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 800, 500);
+		setBounds(100, 100, 600, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
