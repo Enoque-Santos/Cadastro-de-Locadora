@@ -29,7 +29,7 @@ public class TelaCadastroItem extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Video Locadora Hora da Pipoca");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 800, 500);
+		setBounds(100, 100, 600, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -42,71 +42,71 @@ public class TelaCadastroItem extends JFrame {
 		lblNewLabel.setBounds(244, 12, 274, 41);
 		contentPane.add(lblNewLabel);
 
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(new Color(192, 192, 192));
-		panel.setBounds(25, 78, 732, 305);
-		contentPane.add(panel);
+		JPanel panelCadastroItem = new JPanel();
+		panelCadastroItem.setLayout(null);
+		panelCadastroItem.setBackground(new Color(94, 92, 100));
+		panelCadastroItem.setBounds(25, 78, 732, 305);
+		contentPane.add(panelCadastroItem);
 		
 		JLabel lblTitulo = new JLabel("Título:");
 		lblTitulo.setFont(new Font("Calibri", Font.BOLD, 14));
 		lblTitulo.setBounds(30, 70, 46, 14);
-		panel.add(lblTitulo);
+		panelCadastroItem.add(lblTitulo);
 		
 		textFieldTitulo = new JTextField();
 		textFieldTitulo.setEnabled(false);
 		textFieldTitulo.setToolTipText("Consulte um tipo de Filme");
 		textFieldTitulo.setBounds(86, 65, 489, 20);
-		panel.add(textFieldTitulo);
+		panelCadastroItem.add(textFieldTitulo);
 		textFieldTitulo.setColumns(10);
 		
 		JLabel lblTipo = new JLabel("Tipo:");
 		lblTipo.setFont(new Font("Calibri", Font.BOLD, 14));
 		lblTipo.setBounds(30, 116, 46, 14);
-		panel.add(lblTipo);
+		panelCadastroItem.add(lblTipo);
 		
 		JComboBox comboBoxTipo = new JComboBox();
 		comboBoxTipo.setToolTipText("escolha um tipo");
 		comboBoxTipo.setFont(new Font("Calibri", Font.BOLD, 14));
 		comboBoxTipo.setModel(new DefaultComboBoxModel(new String[] {"Selecione um tipo:", "Blu-Ray Disc", "CD", "DVD"}));
-		comboBoxTipo.setBounds(86, 110, 145, 22);
-		panel.add(comboBoxTipo);
+		comboBoxTipo.setBounds(86, 110, 178, 22);
+		panelCadastroItem.add(comboBoxTipo);
 		
 		JLabel lblPreco = new JLabel("Preço:");
 		lblPreco.setFont(new Font("Calibri", Font.BOLD, 14));
 		lblPreco.setBounds(30, 157, 46, 14);
-		panel.add(lblPreco);
+		panelCadastroItem.add(lblPreco);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Calibri", Font.BOLD, 14));
 		textField.setBounds(86, 152, 145, 20);
-		panel.add(textField);
+		panelCadastroItem.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnSalvar = new JButton("SALVAR");
 		btnSalvar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnSalvar.setBounds(30, 231, 100, 29);
-		panel.add(btnSalvar);
+		panelCadastroItem.add(btnSalvar);
 
 		JButton btnLimpar = new JButton("LIMPAR");
 		btnLimpar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnLimpar.setBounds(164, 231, 100, 29);
-		panel.add(btnLimpar);
+		panelCadastroItem.add(btnLimpar);
 
 		JButton btnCancelar = new JButton("CANCELAR");
 		btnCancelar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnCancelar.setBounds(298, 231, 127, 29);
-		panel.add(btnCancelar);
+		panelCadastroItem.add(btnCancelar);
 
 		JButton btnConsultar = new JButton("CONSULTAR");
 		btnConsultar.setFont(new Font("Calibri", Font.BOLD, 16));
 		btnConsultar.setBounds(470, 231, 141, 29);
-		panel.add(btnConsultar);
+		panelCadastroItem.add(btnConsultar);
 		
 		JButton btnPesquisar = new JButton("");
 		btnPesquisar.setIcon(new ImageIcon(TelaCadastroItem.class.getResource("/imagens/lupa16x16.png")));
 		btnPesquisar.setFont(new Font("Calibri", Font.BOLD, 14));
 		btnPesquisar.setBounds(585, 64, 26, 23);
-		panel.add(btnPesquisar);
+		panelCadastroItem.add(btnPesquisar);
 	}
 }

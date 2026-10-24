@@ -2,6 +2,9 @@ package locadora.model;
 
 import java.util.Date;
 
+import locadora.dao.ExceptionDAO;
+import locadora.dao.ClienteDAO;
+
 public class Item {
 	
 	private  Integer codItem;
