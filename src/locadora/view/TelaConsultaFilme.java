@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +21,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import locadora.controller.FilmeController;
+import locadora.dao.ExceptionDAO;
+import locadora.model.Filme;
+
 public class TelaConsultaFilme extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -29,29 +36,29 @@ public class TelaConsultaFilme extends JFrame {
 	private TelaCadastroFilme telaCadastroFilme;
 
 	// 1. Construtor padrão (caso abra direto pelo main)
-    public TelaConsultaFilme() {
-        this(null); // Chama o outro construtor passando null
-    }
-    
+	public TelaConsultaFilme() {
+		this(null); // Chama o outro construtor passando null
+	}
+
 	// 2. Construtor que recebe a tela de cadastro (o que o seu botão chama)
 	public TelaConsultaFilme(TelaCadastroFilme telaCadastroFilme) {
-			this.telaCadastroFilme = telaCadastroFilme;
-			
-			// Configurações da Janela
-			setTitle("Video Locadora Hora da Pipoca");
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setBounds(100, 100, 598, 448);
-			
-			// Evento para reabrir o cadastro quando a consulta for fechada (clicar no X)
-			addWindowListener(new java.awt.event.WindowAdapter() {
-				@Override
-				public void windowClosed(java.awt.event.WindowEvent e) {
-					if (telaCadastroFilme != null) {
-						telaCadastroFilme.setVisible(true);
-					}
+		this.telaCadastroFilme = telaCadastroFilme;
+
+		// Configurações da Janela
+		setTitle("Video Locadora Hora da Pipoca");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 598, 448);
+
+		// Evento para reabrir o cadastro quando a consulta for fechada (clicar no X)
+		addWindowListener(new java.awt.event.WindowAdapter() {
+			@Override
+			public void windowClosed(java.awt.event.WindowEvent e) {
+				if (telaCadastroFilme != null) {
+					telaCadastroFilme.setVisible(true);
 				}
-			
-			});
+			}
+
+		});
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,12 +93,35 @@ public class TelaConsultaFilme extends JFrame {
 				new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-pesquisar-16.png"));
 		btnNewButtonConsultaFilme.setBounds(477, 47, 40, 21);
 		jPanelConsultaFilme.add(btnNewButtonConsultaFilme);
-		
 
-		// Não implementado ainda.
+		
 		btnNewButtonConsultaFilme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Consulta nome do Filme");
+				String nome = textFieldTituloFilme.getText();
+				DefaultTableModel tableModel = (DefaultTableModel) tableConsultaFilme.getModel();
+				tableModel.setRowCount(0);
+
+				FilmeController filmeController = new FilmeController();
+
+				try {
+					ArrayList<Filme> filmes = filmeController.listarFilmes(nome);
+
+					filmes.forEach((Filme filme) -> {
+						tableModel.addRow(new Object[] { 
+								filme.getCodFilme(), 
+								filme.getTitulo(), 
+								filme.getGenero(),
+								filme.getSinopse(), 
+								filme.getDuracao() });
+					});
+
+					tableConsultaFilme.setModel(tableModel);
+
+				} catch (ExceptionDAO e2) {
+					Logger.getLogger(TelaConsultaFilme.class.getName()).log(Level.SEVERE, null, e2);
+				}
+
+				
 			}
 		});
 
@@ -101,16 +131,11 @@ public class TelaConsultaFilme extends JFrame {
 
 		tableConsultaFilme = new JTable();
 		tableConsultaFilme.setFillsViewportHeight(true);
-		tableConsultaFilme.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"C\u00F3digo", "T\u00EDtulo", "G\u00EAnero", "Sinopse", "Dura\u00E7\u00E3o"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, String.class, String.class, String.class, Integer.class
-			};
+		tableConsultaFilme.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "C\u00F3digo", "T\u00EDtulo", "G\u00EAnero", "Sinopse", "Dura\u00E7\u00E3o" }) {
+			Class[] columnTypes = new Class[] { Integer.class, String.class, String.class, String.class,
+					Integer.class };
+
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}

@@ -16,7 +16,7 @@ public class Filme {
 	private ArrayList<Ator> atores = new ArrayList<Ator>();
 
 	public Filme() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	public Filme(String titulo, String genero, String sinopse, Integer duracao) {
 
@@ -86,6 +86,10 @@ public class Filme {
 
 	public void cadastrarFilme(Filme filme) throws ExceptionDAO {
 		new FilmeDAO().cadastrarFilme(filme);
+	}
+	
+	public ArrayList<Filme>listarFilmes(String nome) throws ExceptionDAO{
+		return new FilmeDAO().listarFilmes(nome);
 	}
 
 }
