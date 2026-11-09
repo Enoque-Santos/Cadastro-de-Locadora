@@ -68,8 +68,7 @@ public class TelaConsultaFilme extends JFrame {
 		contentPane.setLayout(null);
 		labelTituloFilme.setBounds(222, 10, 148, 20);
 		labelTituloFilme.setFont(new Font("Dialog", Font.BOLD, 14));
-		labelTituloFilme.setIcon(new ImageIcon(
-				"/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-20.png"));
+		labelTituloFilme.setIcon(new ImageIcon(TelaConsultaFilme.class.getResource("/locadora/imagens/icons8-documentário-20.png")));
 		contentPane.add(labelTituloFilme);
 
 		JPanel jPanelConsultaFilme = new JPanel();
@@ -92,7 +91,7 @@ public class TelaConsultaFilme extends JFrame {
 
 		JButton btnNewButtonConsultaFilme = new JButton("");
 		btnNewButtonConsultaFilme.setIcon(
-				new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-pesquisar-16.png"));
+				new ImageIcon(TelaConsultaFilme.class.getResource("/locadora/imagens/icons8-pesquisar-16.png")));
 		btnNewButtonConsultaFilme.setBounds(477, 47, 40, 21);
 		jPanelConsultaFilme.add(btnNewButtonConsultaFilme);
 
@@ -145,38 +144,33 @@ public class TelaConsultaFilme extends JFrame {
 			}
 		});
 		scrollPane.setViewportView(tableConsultaFilme);
-			
 		tableConsultaFilme.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (e.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(e)) {
-					
-					int linhaSelecionada = tableConsultaFilme.getSelectedRow();
-					
-					// Verifica se realmente clicou em uma linha válida
-					if (linhaSelecionada != -1) {
-						
-						// Pegando os dados da linha selecionada
-						Integer codFilme = (Integer) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 0);
-						String titulo = (String) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 1);
-						String genero = (String) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 2);
-						String sinopse = (String) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 3);
-						Integer duracao = (Integer) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 4);
-						
-						// Se você quiser passar esses dados de volta para a tela de cadastro, 
-						// pode enviá-los para algum método lá antes de exibi-la.
-						
-						// Torna a tela de cadastro visível (chamando a variável da classe externa)
-						if (telaCadastroFilme != null) {
-							telaCadastroFilme.receberDadosFilme(codFilme, titulo, genero, sinopse, duracao);
-							telaCadastroFilme.setVisible(true);
-						}
-						
-						// Fecha a tela de consulta atual
-						dispose(); 
-					}
-				}
-			}
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        // Altera para 1 clique e valida se foi com o botão esquerdo do mouse
+		        if (e.getClickCount() == 1 && SwingUtilities.isLeftMouseButton(e)) {
+		            int linhaSelecionada = tableConsultaFilme.getSelectedRow();
+		            
+		            if (linhaSelecionada != -1) {
+		                // Pegando os dados da linha selecionada
+		                Integer codFilme = (Integer) tableConsultaFilme.getValueAt(linhaSelecionada, 0);
+		                String titulo = (String) tableConsultaFilme.getValueAt(linhaSelecionada, 1);
+		                String genero = (String) tableConsultaFilme.getValueAt(linhaSelecionada, 2);
+		                String sinopse = (String) tableConsultaFilme.getValueAt(linhaSelecionada, 3);
+		                Integer duracao = (Integer) tableConsultaFilme.getValueAt(linhaSelecionada, 4);
+		                
+		                // Envia para a tela de cadastro se ela existir
+		                if (telaCadastroFilme != null) {
+		                    telaCadastroFilme.receberDadosFilme(codFilme, titulo, genero, sinopse, duracao);
+		                    telaCadastroFilme.setVisible(true);
+		                    telaCadastroFilme.toFront();
+		                }
+		                
+		                // Fecha a tela de consulta atual
+		                dispose();
+		            }
+		        }
+		    }
 		});
 	}
 }	

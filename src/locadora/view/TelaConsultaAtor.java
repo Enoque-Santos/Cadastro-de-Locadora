@@ -60,7 +60,7 @@ public class TelaConsultaAtor extends JFrame {
 		
 		
 		JLabel labelTituloAtor = new JLabel("Consulta Ator");
-		labelTituloAtor.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-20.png"));
+		labelTituloAtor.setIcon(new ImageIcon(TelaConsultaAtor.class.getResource("/locadora/imagens/icons8-documentário-20.png")));
 		labelTituloAtor.setFont(new Font("Dialog", Font.BOLD, 14));
 		labelTituloAtor.setBounds(222, 10, 148, 20);
 		contentPane.add(labelTituloAtor);
@@ -84,7 +84,7 @@ public class TelaConsultaAtor extends JFrame {
 		
 		JButton btnNewButtonConsultaAtor = new JButton("");
 		btnNewButtonConsultaAtor.setIcon(
-				new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-pesquisar-16.png"));
+				new ImageIcon(TelaConsultaAtor.class.getResource("/locadora/imagens/icons8-pesquisar-16.png")));
 		btnNewButtonConsultaAtor.setBounds(477, 47, 40, 21);
 		jPanelConsultaAtor.add(btnNewButtonConsultaAtor);
 		

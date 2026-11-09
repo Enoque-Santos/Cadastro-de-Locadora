@@ -45,14 +45,14 @@ public class TelaCadastroCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblCadastroCliente = new JLabel("Cadastro de Cliente");
-		lblCadastroCliente.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-48.png"));
+		lblCadastroCliente.setIcon(new ImageIcon(TelaCadastroCliente.class.getResource("/locadora/imagens/icons8-documentário-48.png")));
 		lblCadastroCliente.setFont(new Font("Calibri", Font.BOLD, 24));
 		lblCadastroCliente.setBounds(260, 12, 284, 41);
 		contentPane.add(lblCadastroCliente);
 
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(new Color(192, 192, 192));
+		panel.setBackground(new Color(94, 92, 100));
 		panel.setBounds(25, 64, 732, 386);
 		contentPane.add(panel);
 

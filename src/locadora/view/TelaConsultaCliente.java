@@ -59,7 +59,7 @@ public class TelaConsultaCliente extends JFrame {
 		
 		
 		labelTituloCliente = new JLabel("Consulta Cliente");
-		labelTituloCliente.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-20.png"));
+		labelTituloCliente.setIcon(new ImageIcon(TelaConsultaCliente.class.getResource("/locadora/imagens/icons8-documentário-20.png")));
 		labelTituloCliente.setFont(new Font("Dialog", Font.BOLD, 14));
 		labelTituloCliente.setBounds(222, 10, 148, 20);
 		contentPane.add(labelTituloCliente);
@@ -86,7 +86,7 @@ public class TelaConsultaCliente extends JFrame {
 		
 		btnNewButtonConsultaCliente = new JButton("");
 		btnNewButtonConsultaCliente.setIcon(
-				new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-pesquisar-16.png"));
+				new ImageIcon(TelaConsultaCliente.class.getResource("/locadora/imagens/icons8-pesquisar-16.png")));
 		btnNewButtonConsultaCliente.setBounds(477, 47, 40, 21);
 		panelConsultaCliente.add(btnNewButtonConsultaCliente);
 		

@@ -59,13 +59,13 @@ public class TelaPrincipal extends JFrame {
 		menuBarTelaPrincipal.add(mnMenuLocacao);
 
 		JMenuItem mntmNewMenuItemAlugar = new JMenuItem("Alugar");
-		mntmNewMenuItemAlugar.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-ordenar-para-a-direita-13.png"));
+		mntmNewMenuItemAlugar.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/locadora/imagens/icons8-ordenar-para-a-direita-13.png")));
 		mntmNewMenuItemAlugar.setHorizontalAlignment(SwingConstants.LEFT);
 		mntmNewMenuItemAlugar.setFont(new Font("Calibri", Font.BOLD, 14));
 		mnMenuLocacao.add(mntmNewMenuItemAlugar);
 
 		JMenuItem mntmNewMenuItemConsulta = new JMenuItem("Consulta");
-		mntmNewMenuItemConsulta.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-ordenar-para-a-direita-13.png"));
+		mntmNewMenuItemConsulta.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/locadora/imagens/icons8-ordenar-para-a-direita-13.png")));
 		mntmNewMenuItemConsulta.setFont(new Font("Calibri", Font.BOLD, 14));
 		mnMenuLocacao.add(mntmNewMenuItemConsulta);
 
@@ -77,7 +77,7 @@ public class TelaPrincipal extends JFrame {
 		menuBarTelaPrincipal.add(mnNewCadastro);
 
 		JMenuItem mntmNewMenuItemAtor = new JMenuItem("Ator");
-		mntmNewMenuItemAtor.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-ordenar-para-a-direita-13.png"));
+		mntmNewMenuItemAtor.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/locadora/imagens/icons8-ordenar-para-a-direita-13.png")));
 		mntmNewMenuItemAtor.setFont(new Font("Calibri", Font.BOLD, 14));
 		mntmNewMenuItemAtor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,7 +90,7 @@ public class TelaPrincipal extends JFrame {
 		
 		//chama tela de cadastro cliente	
 		JMenuItem mntmNewMenuItemCliente = new JMenuItem("Cliente");
-		mntmNewMenuItemCliente.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-ordenar-para-a-direita-13.png"));
+		mntmNewMenuItemCliente.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/locadora/imagens/icons8-ordenar-para-a-direita-13.png")));
 		mntmNewMenuItemCliente.setFont(new Font("Calibri", Font.BOLD, 14));
 		mntmNewMenuItemCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -104,7 +104,7 @@ public class TelaPrincipal extends JFrame {
 
 		//chama tela de cadastro  filme
 		JMenuItem mntmNewMenuItemFilme = new JMenuItem("Filme");
-		mntmNewMenuItemFilme.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-ordenar-para-a-direita-13.png"));
+		mntmNewMenuItemFilme.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/locadora/imagens/icons8-ordenar-para-a-direita-13.png")));
 		mntmNewMenuItemFilme.setFont(new Font("Calibri", Font.BOLD, 14));
 		mntmNewMenuItemFilme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -117,7 +117,7 @@ public class TelaPrincipal extends JFrame {
 		
 		//chama tela de cadastro item
 		JMenuItem mntmNewMenuItem = new JMenuItem("Item");
-		mntmNewMenuItem.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-ordenar-para-a-direita-13.png"));
+		mntmNewMenuItem.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/locadora/imagens/icons8-ordenar-para-a-direita-13.png")));
 		mntmNewMenuItem.setFont(new Font("Calibri", Font.BOLD, 14));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -136,14 +136,20 @@ public class TelaPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(94, 92, 100));
+		panel.setBounds(12, 0, 576, 374);
 		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/locadora/imagens/cinema(2).png")));
+		lblNewLabel.setBounds(24, 0, 540, 374);
+		panel.add(lblNewLabel);
+	
 
-		JLabel lblNewLabelIMG = new JLabel("");
-		panel.add(lblNewLabelIMG);
-		lblNewLabelIMG.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/imagens/cinema(2).png")));
-		setBounds(100, 100, 800, 600);
+		
 	}
-
 }

@@ -29,7 +29,7 @@ public class TelaCadastroItem extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Video Locadora Hora da Pipoca");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 600, 450);
+		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -37,7 +37,7 @@ public class TelaCadastroItem extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Cadastro de Item");
-		lblNewLabel.setIcon(new ImageIcon("/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-48.png"));
+		lblNewLabel.setIcon(new ImageIcon(TelaCadastroItem.class.getResource("/locadora/imagens/icons8-documentário-48.png")));
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 24));
 		lblNewLabel.setBounds(244, 12, 274, 41);
 		contentPane.add(lblNewLabel);
@@ -45,7 +45,7 @@ public class TelaCadastroItem extends JFrame {
 		JPanel panelCadastroItem = new JPanel();
 		panelCadastroItem.setLayout(null);
 		panelCadastroItem.setBackground(new Color(94, 92, 100));
-		panelCadastroItem.setBounds(25, 78, 732, 305);
+		panelCadastroItem.setBounds(25, 64, 732, 386);
 		contentPane.add(panelCadastroItem);
 		
 		JLabel lblTitulo = new JLabel("Título:");
@@ -103,10 +103,5 @@ public class TelaCadastroItem extends JFrame {
 		btnConsultar.setBounds(470, 231, 141, 29);
 		panelCadastroItem.add(btnConsultar);
 		
-		JButton btnPesquisar = new JButton("");
-		btnPesquisar.setIcon(new ImageIcon(TelaCadastroItem.class.getResource("/imagens/lupa16x16.png")));
-		btnPesquisar.setFont(new Font("Calibri", Font.BOLD, 14));
-		btnPesquisar.setBounds(585, 64, 26, 23);
-		panelCadastroItem.add(btnPesquisar);
 	}
 }

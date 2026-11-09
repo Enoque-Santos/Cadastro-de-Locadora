@@ -39,7 +39,7 @@ public class TelaCadastroFilme extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Video Locadora Hora da Pipoca");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 691, 481);
+		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -47,16 +47,15 @@ public class TelaCadastroFilme extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Cadastro de Filme");
-		lblNewLabel.setIcon(new ImageIcon(
-				"/media/enoque/Projetos/JAVA/Cadastro-de-Locadora/src/imagens/icons8-documentário-48.png"));
+		lblNewLabel.setIcon(new ImageIcon(TelaCadastroFilme.class.getResource("/locadora/imagens/icons8-documentário-48.png")));
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 24));
 		lblNewLabel.setBounds(236, 12, 275, 41);
 		contentPane.add(lblNewLabel);
 
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(new Color(192, 192, 192));
-		panel.setBounds(25, 78, 732, 360);
+		panel.setBackground(new Color(94, 92, 100));
+		panel.setBounds(25, 64, 732, 386);
 		contentPane.add(panel);
 
 		JLabel lblTitulo = new JLabel("Título:");
