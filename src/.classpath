@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="/media/enoque/Projetos/JAVA/mysql-connector-j-9.7.0/mysql-connector-j-9.7.0.jar"/>
+	<classpathentry kind="lib" path="/mnt/5d122d5b-200a-4584-ad06-3e8758e54c03/JAVA/mysql-connector-j-9.7.0/mysql-connector-j-9.7.0.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
