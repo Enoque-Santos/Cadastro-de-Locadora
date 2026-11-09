@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,12 +14,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -124,7 +126,9 @@ public class TelaConsultaFilme extends JFrame {
 				
 			}
 		});
-
+		
+		
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(12, 78, 505, 244);
 		jPanelConsultaFilme.add(scrollPane);
@@ -141,6 +145,38 @@ public class TelaConsultaFilme extends JFrame {
 			}
 		});
 		scrollPane.setViewportView(tableConsultaFilme);
-
+			
+		tableConsultaFilme.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(e)) {
+					
+					int linhaSelecionada = tableConsultaFilme.getSelectedRow();
+					
+					// Verifica se realmente clicou em uma linha válida
+					if (linhaSelecionada != -1) {
+						
+						// Pegando os dados da linha selecionada
+						Integer codFilme = (Integer) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 0);
+						String titulo = (String) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 1);
+						String genero = (String) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 2);
+						String sinopse = (String) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 3);
+						Integer duracao = (Integer) tableConsultaFilme.getModel().getValueAt(linhaSelecionada, 4);
+						
+						// Se você quiser passar esses dados de volta para a tela de cadastro, 
+						// pode enviá-los para algum método lá antes de exibi-la.
+						
+						// Torna a tela de cadastro visível (chamando a variável da classe externa)
+						if (telaCadastroFilme != null) {
+							telaCadastroFilme.receberDadosFilme(codFilme, titulo, genero, sinopse, duracao);
+							telaCadastroFilme.setVisible(true);
+						}
+						
+						// Fecha a tela de consulta atual
+						dispose(); 
+					}
+				}
+			}
+		});
 	}
-}
+}	

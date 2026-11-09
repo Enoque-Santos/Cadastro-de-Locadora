@@ -14,16 +14,18 @@ public class ConnectionMVC {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 		} catch (ClassNotFoundException e) {
-
 			e.printStackTrace();
-
 		}
+		
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/MVC?useSSL=false&serverTimezone=UTC", "dev", "projeto2026");
+			// Adicione &allowPublicKeyRetrieval=true no final da string URL abaixo:
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/MVC?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true", "dev", "projeto2026");
+			
 		} catch (SQLException e) {
 			System.err.println("Erro de conexão ao banco MySQL: " + e.getMessage());
 			e.printStackTrace();
 		}
+		
 		return conn;
 	}
 

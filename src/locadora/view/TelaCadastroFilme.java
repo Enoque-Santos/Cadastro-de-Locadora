@@ -29,6 +29,7 @@ public class TelaCadastroFilme extends JFrame {
 	private JTextArea textAreaSinopse;
 	private JComboBox<String> comboBoxGenero;
 	private JSpinner spinnerDuracao;
+	private Integer codigoFilmeAtual;
 
 	/**
 	 * Create the frame.
@@ -181,6 +182,16 @@ public class TelaCadastroFilme extends JFrame {
 		panel.add(lblDuracao);
 
 	}
+	// =========================================================================
+    // MÉTODO PARA RECEBER OS DADOS VINDUROS DA TELA DE CONSULTA 
+    // =========================================================================
+    public void receberDadosFilme(Integer codFilme, String titulo, String genero, String sinopse, Integer duracao) {
+        this.codigoFilmeAtual = codFilme; // Guarda o código caso precise atualizar depois
+        textFieldTitulo.setText(titulo);
+        comboBoxGenero.setSelectedItem(genero);
+        textAreaSinopse.setText(sinopse);
+        spinnerDuracao.setValue(duracao);
+    }
 
 	private void limparCampos() {
 		textFieldTitulo.setText("");
@@ -193,4 +204,7 @@ public class TelaCadastroFilme extends JFrame {
 		this.dispose();
 
 	}
+
+
+	
 }
